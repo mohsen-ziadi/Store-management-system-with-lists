@@ -3,6 +3,7 @@ from bidi.algorithm import get_display
 
 continue_var = True
 while(continue_var):
+    
     main_text = get_display(arabic_reshaper.reshape(
     """
     1 افزودن محصول جدید
