@@ -25,6 +25,17 @@ while(continue_var):
     ))
 
     choosed_item = int(input(input_text))
+    if choosed_item == 1:
+        add_product()
+
+    if choosed_item == 2:
+        view_product()
+
+    if choosed_item == 3:
+        buy_product()
+
+    if choosed_item == 4:
+        view_reports()
 
     if choosed_item == 5:
         continue_var = False
