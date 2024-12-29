@@ -49,9 +49,7 @@ while(continue_var):
         """
         ))
         name_product = input(input_text)
-        products_db1, total_price2 , count_sales2 = buy_product(products_db, name_product , total_price , count_sales)
-        total_price += total_price2
-        count_sales += count_sales2
+        products_db1, total_price , count_sales = buy_product(products_db, name_product , total_price , count_sales)
 
     if choosed_item == 4:
         msg = view_reports(total_price , count_sales)
