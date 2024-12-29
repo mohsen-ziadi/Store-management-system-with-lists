@@ -36,8 +36,8 @@ while(continue_var):
         print(msg_text)
 
     if choosed_item == 2:
-        view_product()
-        print(products_db)
+        msg = view_product(products_db)
+        print(msg)
 
     if choosed_item == 3:
         buy_product()

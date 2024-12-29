@@ -58,8 +58,16 @@ def add_product():
     except Exception as e:
         print(err_text)
 
-def view_product():
-    pass
+def view_product(products_db):
+    msg_text = "" 
+    for item in products_db:
+        stock = item[0]  
+        price = item[1]  
+        name = item[2]  
+
+        msg_text += f"نام: {name}، قیمت: {price} تومان، موجودی: {stock}\n"
+    
+    return get_display(arabic_reshaper.reshape(msg_text))
 
 def buy_product():
     pass
