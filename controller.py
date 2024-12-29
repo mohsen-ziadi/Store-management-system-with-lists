@@ -90,7 +90,7 @@ def buy_product(product_db, name_product , total_price , count_sales):
                 count_sales +=1
                 total_price += item[1]
                 msg_text = f"خرید موفق! مبلغ کل {item[1]} تومان"
-                
+                print(get_display(arabic_reshaper.reshape(msg_text)))
                 break
             else:
                 print(err_count)
