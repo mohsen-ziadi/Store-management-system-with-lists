@@ -5,6 +5,9 @@ from bidi.algorithm import get_display
 
 continue_var = True
 products_db = []
+count_sales = 0
+total_price = 0
+
 while(continue_var):
 
     main_text = get_display(arabic_reshaper.reshape(
@@ -40,7 +43,15 @@ while(continue_var):
         print(msg)
 
     if choosed_item == 3:
-        buy_product()
+        input_text = get_display(arabic_reshaper.reshape(
+        """
+        نام محصول مورد نظر را وارد کنید: 
+        """
+        ))
+        name_product = input(input_text)
+        product_db, total_price2 , count_sales2 = buy_product(product_db, name_product , total_price , count_sales)
+        total_price += total_price2
+        count_sales += count_sales2
 
     if choosed_item == 4:
         view_reports()

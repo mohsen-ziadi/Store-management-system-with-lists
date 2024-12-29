@@ -69,8 +69,38 @@ def view_product(products_db):
     
     return get_display(arabic_reshaper.reshape(msg_text))
 
-def buy_product():
-    pass
+def buy_product(product_db, name_product , total_price , count_sales):
+    err_count = get_display(arabic_reshaper.reshape(
+    """
+    موجودی کافی نیست!!
+    """
+    ))
+
+    err_not_found = get_display(arabic_reshaper.reshape(
+    """
+    محصول یافت نشد!
+    """
+    ))
+    finded = False
+    for item in product_db:
+        if item[0] == name_product:
+            if item[2] > 0:
+                item [2] -=1
+                count_sales +=1
+                total_price += item[1]
+                finded = True
+                break
+            else:
+                print(err_count)
+                break
+            
+    if not finded:
+        print(err_not_found)
+    
+    return product_db, total_price , count_sales
+
+            
+
 
 def view_reports():
     pass
