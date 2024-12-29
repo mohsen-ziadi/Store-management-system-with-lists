@@ -61,11 +61,11 @@ def add_product():
 def view_product(products_db):
     msg_text = "" 
     for item in products_db:
-        stock = item[0]  
+        count = item[0]  
         price = item[1]  
         name = item[2]  
 
-        msg_text += f"نام: {name}، قیمت: {price} تومان، موجودی: {stock}\n"
+        msg_text += f"نام: {count}، قیمت: {price} تومان، موجودی: {name}\n"
     
     return get_display(arabic_reshaper.reshape(msg_text))
 
@@ -84,15 +84,16 @@ def buy_product(product_db, name_product , total_price , count_sales):
     finded = False
     for item in product_db:
         if item[0] == name_product:
+            finded = True
             if item[2] > 0:
                 item [2] -=1
                 count_sales +=1
                 total_price += item[1]
-                finded = True
                 break
             else:
                 print(err_count)
                 break
+        
             
     if not finded:
         print(err_not_found)

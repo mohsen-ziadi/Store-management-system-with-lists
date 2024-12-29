@@ -49,7 +49,7 @@ while(continue_var):
         """
         ))
         name_product = input(input_text)
-        product_db, total_price2 , count_sales2 = buy_product(product_db, name_product , total_price , count_sales)
+        products_db1, total_price2 , count_sales2 = buy_product(products_db, name_product , total_price , count_sales)
         total_price += total_price2
         count_sales += count_sales2
 
