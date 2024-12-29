@@ -54,7 +54,15 @@ while(continue_var):
         count_sales += count_sales2
 
     if choosed_item == 4:
-        view_reports()
+        msg = view_reports(total_price , count_sales)
+        print (msg)
+
 
     if choosed_item == 5:
         continue_var = False
+        msg_text = get_display(arabic_reshaper.reshape(
+        """
+        خروج از برنامه. خداحافظ!
+        """
+        ))
+        print(msg_text)

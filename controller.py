@@ -89,6 +89,8 @@ def buy_product(product_db, name_product , total_price , count_sales):
                 item [2] -=1
                 count_sales +=1
                 total_price += item[1]
+                msg_text = f"خرید موفق! مبلغ کل {item[1]} تومان"
+                
                 break
             else:
                 print(err_count)
@@ -103,5 +105,10 @@ def buy_product(product_db, name_product , total_price , count_sales):
             
 
 
-def view_reports():
-    pass
+def view_reports(total_price , count_sales):
+    if count_sales == 0:
+        msg_text = "هنوز فروشی انجام نشده است."
+    else:
+        msg_text = f"کل مبلغ فروش: {total_price} تومان\nتعداد کل محصولات فروخته شده: {count_sales}"
+
+    return get_display(arabic_reshaper.reshape(msg_text))
