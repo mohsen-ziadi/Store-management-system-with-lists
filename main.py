@@ -4,15 +4,18 @@ from bidi.algorithm import get_display
 
 
 continue_var = True
+products_db = []
 while(continue_var):
 
     main_text = get_display(arabic_reshaper.reshape(
     """
+    _________________________________________
     1 افزودن محصول جدید
     2 مشاهده موجودی محصولات
     3 خرید محصول
     4 مشاهده گزارش فروش
     5 خروج از برنامه
+    _________________________________________
     """
     ))
     print(main_text)
@@ -24,12 +27,17 @@ while(continue_var):
     """
     ))
 
+
     choosed_item = int(input(input_text))
     if choosed_item == 1:
-        add_product()
+        product_list, msg_text = add_product()
+        for item in product_list:
+            products_db.append(item)
+        print(msg_text)
 
     if choosed_item == 2:
         view_product()
+        print(products_db)
 
     if choosed_item == 3:
         buy_product()
