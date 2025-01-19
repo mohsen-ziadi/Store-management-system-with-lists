@@ -2,9 +2,21 @@ import arabic_reshaper
 from bidi.algorithm import get_display
 
 def add_product():
-    input_text = get_display(arabic_reshaper.reshape(
+    input_name = get_display(arabic_reshaper.reshape(
     """
-    اطلاعات محصول را به صورت لیست وارد کنید:
+    نام محصول را وارد کنید: 
+    """
+    ))
+
+    input_price = get_display(arabic_reshaper.reshape(
+    """
+    قیمت را وارد کنید: 
+    """
+    ))
+
+    input_count = get_display(arabic_reshaper.reshape(
+    """
+    تعداد محصول را وارد کنید:
     """
     ))
 
@@ -33,9 +45,16 @@ def add_product():
     """
     ))
 
-    input_list = input(input_text)  
+    product_db = []
+    items = []
+    name = input(input_name)  
+    price = int(input(input_price))  
+    count = int(input(input_count) ) 
+    items.append(name)
+    items.append(price)
+    items.append(count)
+    product_db.append(items)
     try:
-        product_db = eval(input_list) 
         product_list = []
         for item in product_db:
             if type(item[0]) != str:
@@ -66,7 +85,9 @@ def view_product(products_db):
         name = item[2]  
 
         msg_text += f"نام: {count}، قیمت: {price} تومان، موجودی: {name}\n"
+
     
+
     return get_display(arabic_reshaper.reshape(msg_text))
 
 def buy_product(product_db, name_product , total_price , count_sales):
@@ -150,6 +171,13 @@ while(continue_var):
 
     if choosed_item == 2:
         msg = view_product(products_db)
+        if msg == "":
+            msg = get_display(arabic_reshaper.reshape(
+                """
+                محصولی یافت نشد!!
+                """
+                ))
+
         print(msg)
 
     if choosed_item == 3:
